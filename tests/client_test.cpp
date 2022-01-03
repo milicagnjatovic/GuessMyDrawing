@@ -11,7 +11,7 @@ TEST_CASE("client", "[constructor]"){
     SECTION("Clinet is not host after creating."){
         // Arrange 
         Client client("milica");
-        bool expectedOtput = true;
+        bool expectedOtput = false;
         
         // Act
         bool output = client.isHost(); 
