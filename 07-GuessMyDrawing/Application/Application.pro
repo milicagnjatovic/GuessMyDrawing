@@ -27,7 +27,6 @@ SOURCES += \
 
 HEADERS += \
     MessageReceivedEnum.h \
-    MessageType.h \
     canvas.h \
     canvasserializer.h \
     chooseword.h \
