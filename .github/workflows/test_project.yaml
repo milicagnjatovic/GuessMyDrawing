@@ -20,9 +20,11 @@ jobs:
         
       - name: "Build project with qmake"
         run: "qmake ../07-GuessMyDrawing/"
+        working-directory: build
         
       - name: "Build project with make"
         run: make
+        working-directory: build
         
     # now we know project is building and there's not error
         
