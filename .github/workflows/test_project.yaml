@@ -19,7 +19,7 @@ jobs:
         run: "mkdir build"
         
       - name: "Build project with qmake"
-        run: "qmake .."
+        run: "qmake ../07-GuessMyDrawing/"
         
       - name: "Build project with make"
         run: make
