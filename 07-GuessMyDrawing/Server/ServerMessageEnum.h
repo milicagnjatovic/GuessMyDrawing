@@ -1,0 +1,15 @@
+#ifndef SERVERMESSAGEENUM_H
+#define SERVERMESSAGEENUM_H
+
+enum class ServerMessageType {
+    TEXT_MESSAGE,
+    CREATE_ROOM,
+    JOIN_ROOM,
+    LEAVE_ROOM,
+    CHOOSE_WORD,
+    GET_ROOMS,
+    CANVAS_MESSAGE,
+    ERROR
+};
+
+#endif // SERVERMESSAGEENUM_H
