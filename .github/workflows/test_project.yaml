@@ -1,35 +1,36 @@
-name: GuessMyDrawing: test_project
+name: test_project
 
 on:
-        push:
-                branches: [ main ]
-        pull_request:
-                branches: [ main ]
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
 
 jobs:
-        build_and_run_tests:
-                runs-on: ubuntu-latest
+    build_and_run_tests:
+        runs-on: ubuntu-latest
 
-                steps:
-                        -uses: actions/checkout@v2
-                        -name: Install Qt
-                                uses:  jurplel/install-qt-action@v2
+        steps:
+            -uses: actions/checkout@v2     
+            
+            -name: Install Qt
+                    uses: jurplel/install-qt-action@v2 
+            
+            -name: Create test build dir
+                    work-directory: ./tests
+                    run: mkdir build
 
-                        -name: Create test build dir
-                                work-directory: ./tests
-                                run: mkdir build
+            -name: Build tests with qmake
+                    work-directory: ./tests/build
+                    run: qmake ..
 
-                        -name: Build tests with qmake
-                                work-directory: ./tests/build
-                                run: qmake ..
+            -name: Build tests with make
+                    work-directory: ./tests/build
+                    run: make
 
-                        -name: Build tests with make
-                                work-directory: ./tests/build
-                                run: make
+            -name: Run tests
+                    work-directory: ./tests/build
+                    run: ./test
 
-                        -name: Run tests
-                                work-directory: ./tests/build
-                                run: ./test
-
-                        -name: Report
-                                run: echo Tests passed!
+            -name: Report
+                    run: echo Tests passed!
