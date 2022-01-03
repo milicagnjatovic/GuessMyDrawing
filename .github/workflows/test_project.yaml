@@ -15,6 +15,17 @@ jobs:
       - name: "Install Qt"
         uses: jurplel/install-qt-action@v2
         
+      - name: "Cearte project build dir"
+        run: "mkdir build"
+        
+      - name: "Build project with qmake"
+        run: "qmake .."
+        
+      - name: "Build project with make"
+        run: make
+        
+    # now we know project is building and there's not error
+        
       - name: "Create test build dir"
         run: "mkdir build"
         working-directory: ./tests
