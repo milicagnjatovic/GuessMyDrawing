@@ -17,19 +17,19 @@ jobs:
         
       - name: "Create test build dir"
         run: "mkdir build"
-        work-directory: ./tests
+        working-directory: ./tests
         
       - name: "Build tests with qmake"
         run: "qmake .."
-        work-directory: ./tests/build
+        working-directory: ./tests/build
         
       - name: "Build tests with make"
         run: make
-        work-directory: ./tests/build
+        working-directory: ./tests/build
         
       - name: "Run tests"
         run: ./test
-        work-directory: ./tests/build
+        working-directory: ./tests/build
         
       - name: Report
         run: "echo Tests passed!"
